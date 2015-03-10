@@ -62,31 +62,6 @@ using tools.MetadataTools;
 				}
 			}
  		}
-
- 		var splitted = result.split('.');
- 		if (!hasFileName)
- 		{
- 			if (metas.has(TagDefaultClassName))
- 			{
- 				if (metas.get(TagDefaultClassName).params.length == 0)
-	 			{
-	 				#if (haxe_ver >= 3.1)
-					Context.fatalError("Default package is defined " 
-						+ '($TagDefaultClassName) without argument', field.pos);
-					#end
-	 			}	
-	 			else
-	 			{
-	 				splitted.push(metas.get(TagDefaultClassName).params[0].getString());
-	 			}
- 			}
- 			else
- 			{
- 				splitted.push(Context.getLocalClass().get().name);
- 			}
- 		}
-
- 		result = splitted.join("/");
  		
  		return result;
  	}
